@@ -39,7 +39,7 @@
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            padding: 3px 0;
+            padding: 2px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,6 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -94,6 +95,23 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
         /* Hero Section */
@@ -162,83 +180,83 @@
             font-size: 1.1em;
             margin-bottom: 5px;
         }
-.cta-button {
-    background: var(--secondary);
-    color: var(--primary);
-    padding: 18px 50px;
-    font-size: 1.3em;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    animation: fadeInUp 0.8s ease-out 0.6s backwards; /* pulse DIHAPUS */
-    position: relative;
-    overflow: hidden;
-}
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    background: #FFC700; /* warna hover */
-}
+        .cta-button {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px 50px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            position: relative;
+            overflow: hidden;
+        }
 
-/* Efek ripple saat klik */
-.cta-button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: #FFC700;
+        }
 
-.cta-button:active::after {
-    width: 300px;
-    height: 300px;
-}
+        /* Efek ripple saat klik */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
 
-/* Loading */
-.cta-button.loading {
-    position: relative;
-    color: transparent;
-}
+        .cta-button:active::after {
+            width: 300px;
+            height: 300px;
+        }
 
-.cta-button.loading::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border: 2px solid var(--primary);
-    border-top: 2px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-/* 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        /* Loading */
+        .cta-button.loading {
+            position: relative;
+            color: transparent;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-} */
+        .cta-button.loading::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid var(--primary);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Section Styles */
         section {
@@ -393,7 +411,7 @@
             margin-bottom: 40px;
         }
 
-        .speaker-card {
+        .speaker-profile {
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -401,23 +419,27 @@
             transition: all 0.3s ease;
             max-width: 400px;
             width: 100%;
-            cursor: pointer;
+            padding: 30px;
+            text-align: center;
         }
 
-        .speaker-card:hover {
+        .speaker-profile:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         .speaker-img {
-            width: 100%;
-            height: 250px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--primary);
             display: block;
         }
 
         .speaker-info {
-            padding: 25px;
+            padding: 0;
         }
 
         .speaker-info h3 {
@@ -428,6 +450,37 @@
 
         .speaker-info p {
             color: #666;
+            margin-bottom: 15px;
+        }
+
+       /* Untuk gambar yang kotak (perjalanan karier) */
+.speaker-img.square {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px; /* sedikit rounded biar rapi */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: none; /* hilangkan border bulat */
+}
+
+/* Samakan ukuran card dengan speaker-profile */
+.speaker-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
 
         /* Modal Styles */
@@ -540,63 +593,62 @@
         }
 
         /* Payment Section */
-.payment-info {
-    background: var(--light);
-    padding: 60px 20px;
-}
+        .payment-info {
+            background: var(--light);
+            padding: 60px 20px;
+        }
 
-.payment-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.payment-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    text-align: center;
-    border-top: 5px solid var(--primary);
-}
+        .payment-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
 
-.payment-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
 
-/* Icon/logo */
-.payment-logo {
-    width: 90px;
-    height: auto;
-    margin-bottom: 15px;
-    object-fit: contain;
-}
+        /* Icon/logo */
+        .payment-logo {
+            width: 90px;
+            height: auto;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
 
-.payment-details {
-    margin-top: 15px;
-}
+        .payment-details {
+            margin-top: 15px;
+        }
 
-.payment-details p {
-    margin-bottom: 6px;
-    font-size: 1.05em;
-}
+        .payment-details p {
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
 
-.payment-note {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 1.2em;
-    color: var(--primary);
-    font-weight: bold;
-    background: var(--secondary);
-    display: inline-block;
-    padding: 10px 25px;
-    border-radius: 50px;
-}
-
+        .payment-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: var(--primary);
+            font-weight: bold;
+            background: var(--secondary);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+        }
 
         /* Final CTA Section */
         .final-cta {
@@ -624,80 +676,246 @@
         }
 
         .wa-contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    color: var(--primary);
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-}
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--primary);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-.wa-contact img {
-    width: 32px;
-    height: 32px;
-}
+        .wa-contact img {
+            width: 32px;
+            height: 32px;
+        }
 
-.wa-contact:hover {
-    background: var(--secondary);
-    color: white;
-}
+        .wa-contact:hover {
+            background: var(--secondary);
+            color: white;
+        }
 
-footer {
-    background: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 20px 10px; /* diperkecil */
-}
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
 
-.footer-content {
-    max-width: 700px; /* tidak terlalu lebar */
-    margin: 0 auto;
-    font-size: 0.95em; /* sedikit lebih kecil */
-}
-
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 0.95em;
+        }
 
         /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            
+            .section-title {
+                font-size: 2.2em;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 20px;
+            .hamburger {
+                display: flex;
             }
 
             .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: 0.5s;
+                gap: 30px;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2em;
+                padding: 10px 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .nav-container {
+                flex-direction: row;
+                gap: 0;
+            }
+
+            .hero {
+                padding: 20px 15px;
             }
 
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
+                margin-bottom: 15px;
             }
             
             .hero p {
                 font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .webinar-info {
+                padding: 20px;
+                margin: 30px auto;
+            }
+
+            .webinar-info h3 {
+                font-size: 1.5em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .cta-button {
-                padding: 15px 40px;
+                padding: 15px 30px;
                 font-size: 1.1em;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            section {
+                padding: 60px 15px;
             }
 
             .section-title {
-                font-size: 2em;
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+
+            .pain-grid,
+            .solution-grid,
+            .benefits-grid,
+            .payment-methods {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pain-card,
+            .solution-card,
+            .benefit-card,
+            .payment-card {
+                padding: 20px;
             }
 
             .speaker-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 30px;
+            }
+
+            .speaker-profile,
+            .speaker-card {
+                max-width: 100%;
+            }
+
+            .speaker-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .about-content {
+                font-size: 1.1em;
+            }
+
+            .final-cta {
+                padding: 60px 15px;
+            }
+
+            .final-cta h2 {
+                font-size: 2.2em;
+            }
+
+            .final-cta p {
+                font-size: 1.1em;
+            }
+
+            .price {
+                font-size: 2.5em;
             }
 
             .modal-content {
                 max-width: 95%;
                 max-height: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .hero p {
+                font-size: 1em;
+            }
+
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 1.6em;
+            }
+
+            .final-cta h2 {
+                font-size: 1.8em;
+            }
+
+            .price {
+                font-size: 2em;
+            }
+
+            .wa-contact {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+
+            .wa-contact img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .speaker-img {
+                width: 120px;
+                height: 120px;
             }
         }
 
@@ -722,6 +940,57 @@ footer {
             color: white;
             opacity: 0.7;
         }
+
+        /* PEMBATAS ANTAR SECTION YANG BACKGROUNDNYA PUTIH / LIGHT */
+.section-divider {
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+/* Alternatif lain kalau mau lebih tebal & elegan */
+.section-divider-thick {
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(15, 76, 129, 0.05) 50%, transparent 100%);
+    margin: 0;
+}
+
+/* Khusus untuk memisahkan section putih-putih */
+.about,
+.benefits {
+    position: relative;
+}
+
+.about::after,
+.speaker-section::after,
+.benefits::after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, transparent 0%, var(--secondary) 20%, var(--secondary) 80%, transparent 100%);
+    margin: 80px auto 0;
+    max-width: 500px;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+/* Kalau ingin pakai divider lebih tebal & halus (recommended) */
+.about::after,
+.speaker-section::after,
+.benefits::after {
+    height: 100px;
+    background: linear-gradient(to bottom, 
+        rgba(248, 249, 250, 0) 0%,
+        rgba(15, 76, 129, 0.08) 50%,
+        rgba(248, 249, 250, 0) 100%);
+    margin: 60px auto 0;
+    max-width: 100%;
+    opacity: 1;
+    border-radius: 0;
+}
     </style>
 </head>
 <body>
@@ -732,13 +1001,18 @@ footer {
                 <span class="logo-icon">📄</span>
                 Level Up Your CV
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" id="navLinks">
                 <a href="#problems">Masalah</a>
                 <a href="#solutions">Solusi</a>
                 <a href="#benefits">Benefit</a>
                 <a href="#payment">Pembayaran</a>
                 <a href="#register">Daftar</a>
             </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -765,8 +1039,9 @@ footer {
                     </div>
                 </div>
             </div>
+            
+            <button class="cta-button" id="registerButton">DAFTAR SEKARANG</button>
         </div>
-        <div class="scroll-indicator"></div>
     </section>
 
     <!-- Pain Points Section -->
@@ -839,42 +1114,40 @@ footer {
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Speaker Section -->
     <section class="speaker-section">
         <div class="container">
             <h2 class="section-title">Narasumber & Journey</h2>
             <div class="speaker-container">
-                <div class="speaker-card" data-modal="modal2">
-                    <img src="assets/img/Picture1.png" alt="Dr. Indra Wahyur" class="speaker-img">
+                <!-- Profile Narasumber (Foto Pribadi) -->
+                <div class="speaker-profile">
+                    <img src="assets/img/indra.jpg" alt="Dr. Indra Wahyur" class="speaker-img">
                     <div class="speaker-info">
                         <h3>Dr. Indra Wahyu, S.Si., MM.</h3>
-                        <p>HR Manager & Career Development Specialist</p>
                     </div>
                 </div>
-                <div class="speaker-card" data-modal="modal1">
-                    <img src="assets/img/Picture2.png" alt="Perjalanan Karier" class="speaker-img">
-                    <div class="speaker-info">
-                        <h3>Perjalanan Karier</h3>
-                        <p>Dari CV biasa menjadi CV yang menarik perhatian HR</p>
-                    </div>
-                </div>
+                
+                <!-- Perjalanan Karier (Tetap dalam bentuk card yang bisa diklik) -->
+              <!-- Perjalanan Karier (Card kotak) -->
+<div class="speaker-card" data-modal="modal1">
+    <img src="assets/img/Picture2.png" alt="Perjalanan Karier" class="speaker-img square">
+    <div class="speaker-info">
+        <h3>Perjalanan Karier</h3>
+    </div>
+</div>
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Modal 1 -->
     <div class="modal" id="modal1">
         <div class="modal-content">
             <button class="modal-close">&times;</button>
             <img src="assets/img/Picture2.png" alt="Perjalanan Karier" class="modal-img">
-        </div>
-    </div>
-
-    <!-- Modal 2 -->
-    <div class="modal" id="modal2">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <img src="assets/img/Picture1.png" alt="Dr. Indra Wahyu" class="modal-img">
         </div>
     </div>
 
@@ -917,65 +1190,66 @@ footer {
         </div>
     </section>
 
- <!-- Payment Section -->
-<section class="payment-info" id="payment">
-    <div class="container">
-        <h2 class="section-title">💳 Informasi Pembayaran</h2>
+    <div class="section-divider"></div>
 
-        <div class="payment-methods">
+    <!-- Payment Section -->
+    <section class="payment-info" id="payment">
+        <div class="container">
+            <h2 class="section-title">💳 Informasi Pembayaran</h2>
 
-            <!-- Mandiri -->
-            <div class="payment-card">
-                <img class="payment-logo" 
-                     src="assets/img/mandiri.png"
-                     alt="Mandiri">
-                <h3>Bank Mandiri</h3>
-                <div class="payment-details">
-                    <p><strong>1330032598260</strong></p>
-                    <p>a.n MUHAMAD ADLY T</p>
+            <div class="payment-methods">
+
+                <!-- Mandiri -->
+                <div class="payment-card">
+                    <img class="payment-logo" 
+                         src="assets/img/mandiri.png"
+                         alt="Mandiri">
+                    <h3>Bank Mandiri</h3>
+                    <div class="payment-details">
+                        <p><strong>1330032598260</strong></p>
+                        <p>a.n MUHAMAD ADLY T</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- DANA -->
-            <div class="payment-card">
-                <img class="payment-logo" 
-                     src="assets/img/dana.png"
-                     alt="Dana">
-                <h3>DANA</h3>
-                <div class="payment-details">
-                    <p><strong>0813-8629-1824</strong></p>
-                    <p>a.n Adly Trimansyah</p>
+                <!-- DANA -->
+                <div class="payment-card">
+                    <img class="payment-logo" 
+                         src="assets/img/dana.png"
+                         alt="Dana">
+                    <h3>DANA</h3>
+                    <div class="payment-details">
+                        <p><strong>0813-8629-1824</strong></p>
+                        <p>a.n Adly Trimansyah</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Gopay -->
-            <div class="payment-card">
-                <img class="payment-logo" 
-                     src="assets/img/gopay.png"
-                     alt="Gopay">
-                <h3>Gopay</h3>
-                <div class="payment-details">
-                    <p><strong>0813-8629-1824</strong></p>
-                    <p>a.n Adly Trimansyah</p>
+                <!-- Gopay -->
+                <div class="payment-card">
+                    <img class="payment-logo" 
+                         src="assets/img/gopay.png"
+                         alt="Gopay">
+                    <h3>Gopay</h3>
+                    <div class="payment-details">
+                        <p><strong>0813-8629-1824</strong></p>
+                        <p>a.n Adly Trimansyah</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- ShopeePay -->
-            <div class="payment-card">
-                <img class="payment-logo" 
-                     src="assets/img/spay.png"
-                     alt="ShopeePay">
-                <h3>ShopeePay</h3>
-                <div class="payment-details">
-                    <p><strong>0813-8629-1824</strong></p>
-                    <p>a.n Adly Trimansyah</p>
+                <!-- ShopeePay -->
+                <div class="payment-card">
+                    <img class="payment-logo" 
+                         src="assets/img/spay.png"
+                         alt="ShopeePay">
+                    <h3>ShopeePay</h3>
+                    <div class="payment-details">
+                        <p><strong>0813-8629-1824</strong></p>
+                        <p>a.n Adly Trimansyah</p>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta" id="register">
@@ -986,26 +1260,41 @@ footer {
             <p style="font-size: 1.1em; opacity: 0.9;">Kuota Terbatas - Daftar Sebelum 5 Desember 2025</p>
             <button class="cta-button" id="finalRegisterButton">DAFTAR SEKARANG</button>
             <p style="font-size: 1.2em; margin-bottom: 20px; margin-top: 20px;">
-    Butuh bantuan? Hubungi kami melalui WhatsApp:
+                Butuh bantuan? Hubungi kami melalui WhatsApp:
             </p>
 
-<a href="https://wa.me/6285715335034" target="_blank" class="wa-contact">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA" />
-    WhatsApp
-</a>
-
+            <a href="https://wa.me/6285715335034" target="_blank" class="wa-contact">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA" />
+                WhatsApp
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
-        <p>&copy; 2025 Level Up Your CV Webinar. All Rights Reserved.</p>
-    </div>
-</footer>
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 Level Up Your CV Webinar. All Rights Reserved.</p>
+        </div>
+    </footer>
 
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-   <script>
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
         // Smooth scroll animation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1031,7 +1320,7 @@ footer {
             });
         }, observerOptions);
 
-        document.querySelectorAll('.pain-card, .solution-card, .benefit-card, .payment-card, .speaker-card').forEach(el => {
+        document.querySelectorAll('.pain-card, .solution-card, .benefit-card, .payment-card, .speaker-card, .speaker-profile').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
