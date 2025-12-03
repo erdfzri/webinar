@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level Up Your CV - Webinar Eksklusif</title>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1420673536389870');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1420673536389870&ev=PageView&noscript=1"
+    /></noscript>
+    
     <style>
         * {
             margin: 0;
@@ -182,6 +199,8 @@
         }
 
         .cta-button {
+                        display: inline-flex;
+                        align-items: center;
             background: var(--secondary);
             color: var(--primary);
             padding: 18px 50px;
@@ -192,35 +211,28 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            /* animation dihapus agar tidak ada animasi */
             position: relative;
             overflow: hidden;
+            z-index: 1;
+            opacity: 1;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            background: #FFC700;
-        }
+                        background: #e6c200;
+                    }
+
+                    .cta-button img.arrow-right {
+                        transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), scale 0.4s cubic-bezier(.34,1.56,.64,1);
+                    }
+
+                    .cta-button:hover img.arrow-right {
+                        transform: translateX(14px) scale(1.25);
+                        filter: drop-shadow(0 2px 6px rgba(15,76,129,0.18));
+                    }
 
         /* Efek ripple saat klik */
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-button:active::after {
-            width: 300px;
-            height: 300px;
-        }
+        /* Efek ripple dihapus */
 
         /* Loading */
         .cta-button.loading {
@@ -1040,7 +1052,7 @@
                 </div>
             </div>
             
-            <button class="cta-button" id="registerButton">DAFTAR SEKARANG</button>
+            <button class="cta-button" id="registerButton">DAFTAR SEKARANG <img src="assets/img/arrow-right.svg" alt="Panah" class="arrow-right" style="height:1.6em;width:auto;margin-left:14px;" /></button>
         </div>
     </section>
 
@@ -1125,7 +1137,7 @@
                 <div class="speaker-profile">
                     <img src="assets/img/indra.jpg" alt="Dr. Indra Wahyur" class="speaker-img">
                     <div class="speaker-info">
-                        <h3>Dr. Indra Wahyu, S.Si., MM.</h3>
+                        <h3>Dr. Indra Wahyu, S.Si., M.M.</h3>
                     </div>
                 </div>
                 
@@ -1234,19 +1246,6 @@
                         <p>a.n Adly Trimansyah</p>
                     </div>
                 </div>
-
-                <!-- ShopeePay -->
-                <div class="payment-card">
-                    <img class="payment-logo" 
-                         src="assets/img/spay.png"
-                         alt="ShopeePay">
-                    <h3>ShopeePay</h3>
-                    <div class="payment-details">
-                        <p><strong>0813-8629-1824</strong></p>
-                        <p>a.n Adly Trimansyah</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -1258,7 +1257,7 @@
             <p>Investasi kecil untuk perubahan besar dalam karier Anda</p>
             <div class="price">Rp. 20.000</div>
             <p style="font-size: 1.1em; opacity: 0.9;">Kuota Terbatas - Daftar Sebelum 5 Desember 2025</p>
-            <button class="cta-button" id="finalRegisterButton">DAFTAR SEKARANG</button>
+            <button class="cta-button" id="finalRegisterButton">DAFTAR SEKARANG <img src="assets/img/arrow-right.svg" alt="Panah" class="arrow-right" style="height:1.6em;width:auto;margin-left:14px;" /></button>
             <p style="font-size: 1.2em; margin-bottom: 20px; margin-top: 20px;">
                 Butuh bantuan? Hubungi kami melalui WhatsApp:
             </p>
